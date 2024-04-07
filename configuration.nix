@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
   let
     unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-    username = "alexis_lapierre";
+    username = "cirno";
   in {
   imports =
     [ # Include the results of the hardware scan.
