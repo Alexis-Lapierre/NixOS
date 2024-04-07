@@ -103,8 +103,6 @@
       wl-clipboard
 
       # My programming needs 
-      git
-      gnupg
       unstable.gitui
       androidStudioPackages.canary
 
@@ -163,6 +161,13 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+  };
+
+  # GnuPGP settings, I guess ?
+  programs.git.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   # This value determines the NixOS release from which the default
