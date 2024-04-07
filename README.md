@@ -1,9 +1,9 @@
-= Alexis Lapierre's NixOS configuration
+# Alexis Lapierre's NixOS configuration
 
 This is my NixOS configuration.
 Nothing much to talk about here.
 
-= First configuration
+# First configuration
 
 On a fresh install you need to run these:
 
