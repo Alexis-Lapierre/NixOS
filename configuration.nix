@@ -12,6 +12,18 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
+  nixpkgs.overlays = [ (final: prev: {
+    hydrus = prev.hydrus.overrideAttrs ( old: rec {
+      version = "569";
+      src = prev.fetchFromGitHub {
+        owner = "hydrusnetwork";
+        repo = "hydrus";
+        rev = "refs/tags/v${version}";
+        sha256 = "sha256-yR0ttMBVMWN68rMMxFiTNMuG/1ddgvufjX3lE/FZ694=";
+      };
+    });
+  }) ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -111,6 +123,9 @@
       unstable.zoxide
       bat
       neofetch
+
+      # Image management
+      hydrus
 
       # Communication with friends
       discord
