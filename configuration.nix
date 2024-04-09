@@ -127,6 +127,9 @@
       # Image management
       hydrus
 
+      # Viewing my epub files
+      okular
+
       # Communication with friends
       discord
       telegram-desktop
