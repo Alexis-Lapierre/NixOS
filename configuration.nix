@@ -162,6 +162,8 @@
       unstable.helix # My editor, latest version
       nil # Nix language server, used by helix
 
+      timeshift
+
       # Some tools I use often
       htop
       file # standard utils tool
