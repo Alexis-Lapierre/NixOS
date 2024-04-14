@@ -98,7 +98,7 @@
 
     shell = pkgs.fish;
     isNormalUser = true;
-    description = "Alexis Lapierre";
+    description = "Cirno";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       # Web browsers I use often
