@@ -113,6 +113,7 @@
 
       # clipboard for helix
       wl-clipboard
+      unstable.xclicker
 
       # My programming needs 
       unstable.gitui
