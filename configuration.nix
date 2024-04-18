@@ -14,7 +14,7 @@
 
   nixpkgs.overlays = [ (final: prev: {
     hydrus = prev.hydrus.overrideAttrs ( old: rec {
-      version = "569";
+      version = "570";
       src = prev.fetchFromGitHub {
         owner = "hydrusnetwork";
         repo = "hydrus";
