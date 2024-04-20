@@ -2,24 +2,23 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-  let
-    unstable = import <nixos-unstable> { config = config.nixpkgs.config; };
-    username = "cirno";
-  in {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-    ];
+{ config, pkgs, unstable, ... }:
+let
+  username = "cirno";
+in {
+  imports = [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+  ];
 
+  nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [ (final: prev: {
-    hydrus = prev.hydrus.overrideAttrs ( old: rec {
-      version = "570";
+    hydrus = prev.hydrus.overrideAttrs ( old: {
+      version = "571";
       src = prev.fetchFromGitHub {
         owner = "hydrusnetwork";
         repo = "hydrus";
-        rev = "refs/tags/v${version}";
-        sha256 = "sha256-yR0ttMBVMWN68rMMxFiTNMuG/1ddgvufjX3lE/FZ694=";
+        rev = "refs/tags/v${final.hydrus.version}";
+        sha256 = "sha256-e4IfE/XS0egXNrEsDXQi9JvJpY4iCw59+KN0YSi35dk=";
       };
     });
   }) ];
@@ -29,7 +28,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "NixOS"; # Define your hostname.
+  networking.hostName = "CirnOS"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -143,9 +142,6 @@
       wineWowPackages.waylandFull
     ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # allow me to use nix command directly
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
