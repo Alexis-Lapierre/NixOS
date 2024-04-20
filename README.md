@@ -11,6 +11,7 @@ Otherwise, just copy your /etc/nixos/hardware-configuration.nix into this folder
 
 Then run
 ```bash
+mkpassword "Your password" > ~/nix/password
 sudo nixos-rebuild --upgrade switch --flake .
 ```
 
