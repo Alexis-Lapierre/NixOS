@@ -5,21 +5,13 @@ Nothing much to talk about here.
 
 # First configuration
 
-On a fresh install you need to run these:
+TODO: remember how to configure nix flakes from the command line
 
+Otherwise, just copy your /etc/nixos/hardware-configuration.nix into this folder.
+
+Then run
 ```bash
-# in your $HOME
-git clone git@github.com:Alexis-Lapierre/NixOS.git
-
-# I think this is the correct order? I always forget with ln
-ln -svP ~/nix/configuration.nix /etc/nixos/configuration.nix
-
-# Create your password
-mkpassword "Your password" > ~/nix/password
-
-# Add unstable as a secondary source:
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-
-# Build everything, set it as default for next boot
-sudo nixos-rebuild --upgrade 
+sudo nixos-rebuild --upgrade switch --flake .
 ```
+
+You can just about delete your /etc/nixos/ folder after that
