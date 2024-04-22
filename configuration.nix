@@ -100,6 +100,9 @@ in {
     description = "Cirno";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      # nix helper, still don't know if I'll keep it
+      unstable.nh
+
       # Web browsers I use often
       firefox
       brave
