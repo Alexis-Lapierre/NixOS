@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, unstable, ... }:
+{ pkgs, unstable, ... }:
 let
   username = "cirno";
 in {
@@ -124,6 +124,7 @@ in {
 
       # Image management
       hydrus
+      (pkgs.callPackage ./hydrus-desktop.nix {})
 
       # Viewing my epub files
       okular
