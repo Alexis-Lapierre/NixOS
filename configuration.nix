@@ -89,12 +89,7 @@ in {
     pulse.enable = true;
   };
 
-  users.mutableUsers = false;
   users.users.${username} = {
-    # mutableUsers specific part
-    uid = 1000;
-    hashedPasswordFile = "/home/${username}/nix/password";
-
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Cirno";
