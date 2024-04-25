@@ -10,6 +10,11 @@ in {
       ./hardware-configuration.nix
   ];
 
+  fileSystems."/tmp" = { device = "none";
+    fsType = "tmpfs";
+    options = [ "mode=777" ]; 
+  };
+
   nixpkgs.config.allowUnfree = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
