@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, unstable, ... }:
+{ pkgs, unstable, alexis, ... }:
 let
   username = "cirno";
 in {
@@ -11,18 +11,6 @@ in {
   ];
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ (final: prev: {
-    hydrus = prev.hydrus.overrideAttrs ( old: {
-      version = "571";
-      src = prev.fetchFromGitHub {
-        owner = "hydrusnetwork";
-        repo = "hydrus";
-        rev = "refs/tags/v${final.hydrus.version}";
-        sha256 = "sha256-e4IfE/XS0egXNrEsDXQi9JvJpY4iCw59+KN0YSi35dk=";
-      };
-    });
-  }) ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -123,8 +111,7 @@ in {
       neofetch
 
       # Image management
-      hydrus
-      (pkgs.callPackage ./hydrus-desktop.nix {})
+      alexis.hydrus
 
       # Viewing my epub files
       okular
