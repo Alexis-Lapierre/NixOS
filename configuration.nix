@@ -15,6 +15,11 @@ in {
     options = [ "mode=777" ]; 
   };
 
+  # Password feedback, to make my life not miserable when I mistype 
+  security.sudo.extraConfig = ''
+      Defaults env_reset,pwfeedback
+  '';
+
   nixpkgs.config.allowUnfree = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
