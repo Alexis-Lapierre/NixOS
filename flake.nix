@@ -4,10 +4,10 @@
   inputs = {
     stable.url = "nixpkgs/nixos-23.11";
     unstable.url = "nixpkgs/nixos-unstable";
-    alexis.url = "github:Alexis-Lapierre/nixpkgs";
+    unstable-small.url = "nixpkgs/nixos-unstable-small";
   };
 
-  outputs = { self, stable, unstable, alexis }:
+  outputs = { self, stable, unstable, unstable-small }:
     {
       nixosConfigurations = {
         CirnOS = stable.lib.nixosSystem rec {
@@ -19,7 +19,7 @@
               inherit system;
               config.allowUnfree = true;
             };
-            alexis = import alexis {
+            unstable-small = import unstable-small {
               inherit system;
               config.allowUnfree = true;
             };
