@@ -2,66 +2,25 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, unstable, unstable-small, ... }:
+{ pkgs, unstable, ... }:
 let
   username = "cirno";
 in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../common.nix
   ];
 
-  fileSystems."/tmp" = { device = "none";
-    fsType = "tmpfs";
-    options = [ "mode=777" ]; 
-  };
-
-  # Password feedback, to make my life not miserable when I mistype 
-  security.sudo.extraConfig = ''
-      Defaults env_reset,pwfeedback
-  '';
-
-  nixpkgs.config.allowUnfree = true;
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "CirnOS"; # Define your hostname.
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "Europe/Paris";
-
-  # Locale
-  i18n = {
-    defaultLocale = "en_GB.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "fr_FR.UTF-8";
-      LC_IDENTIFICATION = "fr_FR.UTF-8";
-      LC_MEASUREMENT = "fr_FR.UTF-8";
-      LC_MONETARY = "fr_FR.UTF-8";
-      LC_NAME = "fr_FR.UTF-8";
-      LC_NUMERIC = "fr_FR.UTF-8";
-      LC_PAPER = "fr_FR.UTF-8";
-      LC_TELEPHONE = "fr_FR.UTF-8";
-      LC_TIME = "fr_FR.UTF-8";
-    };
-  };
-
   # Configure keymap in X11
   services.xserver = {
-    enable = true;
-    layout = "fr";
-    xkbVariant = "us";
-    xkbOptions = "caps:swapescape";
-
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-
-    # do not use the xterm terminal
-    excludePackages = [ pkgs.xterm ]; 
   };
 
   # enable auto login for main user + workaround found here:
@@ -73,19 +32,12 @@ in {
     user = username;
   };
 
-  # Configure console keymap
-  console.keyMap = "us";
-
   # No need for printer here.
   services.printing.enable = false;
-
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
+  
+  environement.systemPackages = [
+    pkgs.timeshift # Backups!
+  ];
 
   users.users.${username} = {
     shell = pkgs.fish;
@@ -121,7 +73,7 @@ in {
       neofetch
 
       # Image management
-      unstable-small.hydrus
+      unstable.hydrus
 
       # Viewing my epub files
       okular
@@ -139,48 +91,10 @@ in {
     ];
   };
 
-  # allow me to use nix command directly
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  environment = {
-    gnome.excludePackages = with pkgs; [
-      geany # I use helix 
-      gnome.epiphany # I use firefox
-      gnome.geary # No need for an email client
-      gnome.gnome-terminal # I use kitty
-    ];
-
-    # do not use gnome terminal or epiphany (web browser)
-    systemPackages = with pkgs; [
-      unstable.helix # My editor, latest version
-      nil # Nix language server, used by helix
-
-      timeshift
-
-      # Some tools I use often
-      htop
-      file # standard utils tool
-      ethtool
-      killall
-    ];
-
-    # Since there is no programs.helix.defaultEditor, just plainly force this value for everyone
-    # A redditor seemed really mad about this
-    variables.EDITOR = "hx";
-  };
-
-  programs.fish.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-  };
-
-  # GnuPGP settings, I guess ?
-  programs.git.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
   };
 
   # This value determines the NixOS release from which the default

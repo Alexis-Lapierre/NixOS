@@ -4,22 +4,29 @@
   inputs = {
     stable.url = "nixpkgs/nixos-23.11";
     unstable.url = "nixpkgs/nixos-unstable";
-    unstable-small.url = "nixpkgs/nixos-unstable-small";
   };
 
-  outputs = { self, stable, unstable, unstable-small }:
+  outputs = { self, stable, unstable }:
     {
       nixosConfigurations = {
         CirnOS = stable.lib.nixosSystem rec {
           system = "x86_64-linux";
-          modules = [ ./configuration.nix ];
+          modules = [ ./devices/CirnOS/configuration.nix ];
 
           specialArgs = {
             unstable = import unstable {
               inherit system;
               config.allowUnfree = true;
             };
-            unstable-small = import unstable-small {
+          };
+        };
+
+        MomBasement = stable.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          modules = [ ./devices/MomBasement/configuration.nix ];
+
+          specialArgs = {
+            unstable = import unstable {
               inherit system;
               config.allowUnfree = true;
             };
