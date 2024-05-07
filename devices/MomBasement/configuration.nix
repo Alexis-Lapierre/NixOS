@@ -79,20 +79,7 @@ in {
       # Communication with friends
       discord
       telegram-desktop
-
-      # Gaming!
-      # run (in this case) visual novels via steam run
-      steam-run
-      # Other random video games I have collected require wine
-      # Force wayland with wine 32 bits because I like wayland
-      wineWowPackages.waylandFull
     ];
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
   };
 
   # This value determines the NixOS release from which the default
