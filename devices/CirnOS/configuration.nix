@@ -35,7 +35,7 @@ in {
   # No need for printer here.
   services.printing.enable = false;
   
-  environement.systemPackages = [
+  environment.systemPackages = [
     pkgs.timeshift # Backups!
   ];
 
