@@ -31,16 +31,18 @@
   # French for the rest (€, metric, ...)
   i18n = {
     defaultLocale = "en_GB.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "fr_FR.UTF-8";
-      LC_IDENTIFICATION = "fr_FR.UTF-8";
-      LC_MEASUREMENT = "fr_FR.UTF-8";
-      LC_MONETARY = "fr_FR.UTF-8";
-      LC_NAME = "fr_FR.UTF-8";
-      LC_NUMERIC = "fr_FR.UTF-8";
-      LC_PAPER = "fr_FR.UTF-8";
-      LC_TELEPHONE = "fr_FR.UTF-8";
-      LC_TIME = "fr_FR.UTF-8";
+    extraLocaleSettings = let
+      fr = "fr_FR.UTF-8";
+    in {
+      LC_ADDRESS = fr;
+      LC_IDENTIFICATION = fr;
+      LC_MEASUREMENT = fr;
+      LC_MONETARY = fr;
+      LC_NAME = fr;
+      LC_NUMERIC = fr;
+      LC_PAPER = fr;
+      LC_TELEPHONE = fr;
+      LC_TIME = fr;
     };
   };
 
