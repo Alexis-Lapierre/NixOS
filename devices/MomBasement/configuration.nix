@@ -7,8 +7,8 @@ let
   username = "cirno";
 in {
   imports = [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../common.nix
+    ./hardware-configuration.nix
+    (import ../common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
   ];
 
   # Bootloader.
@@ -39,46 +39,10 @@ in {
   services.printing.enable = false;
 
   users.users.${username} = {
-    shell = pkgs.fish;
-    isNormalUser = true;
     description = "Cirno";
-    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      # nix helper, still don't know if I'll keep it
-      unstable.nh
-
-      # Web browsers I use often
-      firefox
-      brave
-
       # Gnome needs gnome tweaks to access some settings
       gnome.gnome-tweaks
-
-      # My prefered terminal emulator
-      unstable.kitty
-
-      # clipboard for helix
-      wl-clipboard
-      unstable.xclicker
-
-      # My programming needs 
-      unstable.gitui
-
-      # tty commands I use
-      unstable.eza
-      unstable.zoxide
-      bat
-      neofetch
-
-      # Image management
-      unstable.hydrus
-
-      # Viewing my epub files
-      okular
-
-      # Communication with friends
-      discord
-      telegram-desktop
     ];
   };
 

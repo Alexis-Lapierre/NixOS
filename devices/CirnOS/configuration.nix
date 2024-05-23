@@ -8,7 +8,7 @@ let
 in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../common.nix
+      (import ../common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
   ];
 
   # Bootloader.
@@ -20,16 +20,7 @@ in {
   # Configure keymap in X11
   services.xserver = {
     displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-
-  # enable auto login for main user + workaround found here:
-  # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.xserver.displayManager.autoLogin = {
-    enable = true;
-    user = username;
+    desktopManager.lxqt.enable = true;
   };
 
   # No need for printer here.
@@ -40,47 +31,11 @@ in {
   ];
 
   users.users.${username} = {
-    shell = pkgs.fish;
-    isNormalUser = true;
     description = "Cirno";
-    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      # nix helper, still don't know if I'll keep it
-      unstable.nh
-
-      # Web browsers I use often
-      firefox
-      brave
-
-      # Gnome needs gnome tweaks to access some settings
-      gnome.gnome-tweaks
-
-      # My prefered terminal emulator
-      unstable.kitty
-
-      # clipboard for helix
-      wl-clipboard
       unstable.xclicker
 
-      # My programming needs 
-      unstable.gitui
       androidStudioPackages.canary
-
-      # tty commands I use
-      unstable.eza
-      unstable.zoxide
-      bat
-      neofetch
-
-      # Image management
-      unstable.hydrus
-
-      # Viewing my epub files
-      okular
-
-      # Communication with friends
-      discord
-      telegram-desktop
 
       # Gaming!
       # run (in this case) visual novels via steam run
@@ -88,6 +43,8 @@ in {
       # Other random video games I have collected require wine
       # Force wayland with wine 32 bits because I like wayland
       wineWowPackages.waylandFull
+      # StarSector is a good game
+      unstable.starsector
     ];
   };
 

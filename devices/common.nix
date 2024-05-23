@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, unstable, username }:
 {
   # /tmp as a temp file system, as expected in other distros
   fileSystems."/tmp" = {
@@ -49,7 +49,6 @@
     enable = true;
     layout = "fr";
     xkbVariant = "us";
-    xkbOptions = "caps:swapescape";
 
     # do not use the xterm terminal
     excludePackages = [ pkgs.xterm ]; 
@@ -95,5 +94,46 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  users.users.${username} = {
+    shell = pkgs.fish;
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      firefox
+      brave
+      
+      # a great nix helper
+      unstable.nh
+
+      # My prefered terminal emulator
+      unstable.kitty
+      
+      # clipboard for helix
+      wl-clipboard
+
+
+      # My programming needs 
+      unstable.gitui
+
+      # tty commands I use
+      unstable.eza
+      unstable.zoxide
+      bat
+      fastfetch
+      # Image management
+      unstable.hydrus
+
+      # Viewing my epub files
+      okular
+
+      # Communication with friends
+      discord
+      telegram-desktop
+
+      # Archive extraction, woo
+      p7zip
+    ];
   };
 }
