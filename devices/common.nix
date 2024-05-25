@@ -83,6 +83,7 @@
       file # standard utils tool
       ethtool
       killall
+      usbutils # lsusb, youhou
     ];
 
     # Since there is no programs.helix.defaultEditor, just plainly force this value for everyone
