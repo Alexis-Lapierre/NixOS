@@ -46,6 +46,15 @@ in {
     ];
   };
 
+  environement = {
+    gnome.excludePackages = with pkgs; [
+      geany # I use helix 
+      gnome.epiphany # I use firefox
+      gnome.geary # No need for an email client
+      gnome.gnome-terminal # I use kitty
+    ];
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

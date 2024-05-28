@@ -68,13 +68,6 @@
   };
 
   environment = {
-    gnome.excludePackages = with pkgs; [
-      geany # I use helix 
-      gnome.epiphany # I use firefox
-      gnome.geary # No need for an email client
-      gnome.gnome-terminal # I use kitty
-    ];
-    # do not use gnome terminal or epiphany (web browser)
     systemPackages = with pkgs; [
       unstable.helix # My editor, latest version
       nil # Nix language server, used by helix
