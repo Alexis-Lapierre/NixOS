@@ -47,6 +47,8 @@ in {
 
   users.users.${username} = {
     description = "Cirno";
+
+    packages = [ pkgs.xsel ];
   };
 
   # This value determines the NixOS release from which the default
