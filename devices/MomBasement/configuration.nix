@@ -22,8 +22,15 @@ in {
 
   # Configure keymap in X11
   services.xserver = {
+    # default AZERTY keyboard used at this computer
+    xkb = {
+      layout = "fr";
+      options = "caps:swapescape";
+    };
+
+
     displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    desktopManager.lxqt.enable = true;
   };
 
   # enable auto login for main user + workaround found here:
@@ -40,19 +47,6 @@ in {
 
   users.users.${username} = {
     description = "Cirno";
-    packages = with pkgs; [
-      # Gnome needs gnome tweaks to access some settings
-      gnome.gnome-tweaks
-    ];
-  };
-
-  environement = {
-    gnome.excludePackages = with pkgs; [
-      geany # I use helix 
-      gnome.epiphany # I use firefox
-      gnome.geary # No need for an email client
-      gnome.gnome-terminal # I use kitty
-    ];
   };
 
   # This value determines the NixOS release from which the default

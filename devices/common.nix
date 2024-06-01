@@ -46,12 +46,8 @@
     };
   };
 
-  # Configure keymap in X11
   services.xserver = {
     enable = true;
-    layout = "fr";
-    xkbVariant = "us";
-
     # do not use the xterm terminal
     excludePackages = [ pkgs.xterm ]; 
   };

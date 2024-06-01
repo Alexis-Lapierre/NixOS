@@ -19,6 +19,13 @@ in {
 
   # Configure keymap in X11
   services.xserver = {
+    # I use a QWERTY keyboard at this compture, so US keyboard with french characteristics.
+    layout = "fr";
+    xkb = {
+      layout = "fr";
+      variant = "us";
+    };
+
     displayManager.gdm.enable = true;
     desktopManager.lxqt.enable = true;
   };
