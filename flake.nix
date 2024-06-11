@@ -2,7 +2,7 @@
   description = "A very basic flake";
 
   inputs = {
-    stable.url = "nixpkgs/nixos-23.11";
+    stable.url = "nixpkgs/nixos-24.05";
     unstable.url = "nixpkgs/nixos-unstable";
   };
 
