@@ -42,6 +42,9 @@ in {
     packages = with pkgs; [
       unstable.xclicker
 
+      # copy paste in x11
+      xsel
+
       androidStudioPackages.canary
 
       # Gaming!
@@ -52,6 +55,7 @@ in {
       wineWowPackages.waylandFull
       # StarSector is a good game
       unstable.starsector
+
     ];
   };
 
