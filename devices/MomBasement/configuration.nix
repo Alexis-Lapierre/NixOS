@@ -8,7 +8,7 @@ let
 in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    (import ../../common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+    (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
   ];
 
   # Bootloader.

@@ -8,7 +8,8 @@ let
 in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../../common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+      (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+      (import ../../modules/hyprland.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
   ];
 
   # Bootloader.
@@ -25,9 +26,6 @@ in {
       layout = "fr";
       variant = "us";
     };
-
-    displayManager.gdm.enable = true;
-    desktopManager.lxqt.enable = true;
   };
 
   # No need for printer here.
@@ -55,14 +53,15 @@ in {
       wineWowPackages.waylandFull
       # StarSector is a good game
       unstable.starsector
-
     ];
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
   };
 
   # This value determines the NixOS release from which the default
