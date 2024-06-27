@@ -6,6 +6,7 @@
       pavucontrol
       wofi
       hyprshot
+      hyprpaper
     ];
   };
   programs = {
