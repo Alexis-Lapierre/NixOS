@@ -22,6 +22,7 @@ in {
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     # default AZERTY keyboard used at this computer
     xkb = {
       layout = "fr";

@@ -61,7 +61,6 @@
   };
 
   services.xserver = {
-    enable = true;
     # do not use the xterm terminal
     excludePackages = [ pkgs.xterm ]; 
   };
