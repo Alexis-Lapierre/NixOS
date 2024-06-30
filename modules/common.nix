@@ -131,6 +131,7 @@
 
       # Communication with friends
       discord
+      element-desktop
       telegram-desktop
 
       # Archive extraction, woo
