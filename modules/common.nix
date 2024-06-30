@@ -116,10 +116,6 @@
       # My prefered terminal emulator
       unstable.kitty
       
-      # clipboard for helix
-      wl-clipboard
-
-
       # My programming needs 
       unstable.gitui
 
