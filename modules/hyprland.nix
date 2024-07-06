@@ -9,6 +9,7 @@
       waybar # Top bar
       wl-clipboard # clipboard for terminal based app
       wofi # app launcher
+      qt6ct # Set your Qt themes with this application
     ];
   };
   programs = {
