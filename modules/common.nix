@@ -79,15 +79,18 @@
     variables.EDITOR = "hx";
   };
 
-  programs.fish.enable = true;
-  # GnuPGP settings, I guess ?
-  programs.git.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
+  programs = {
+    fish.enable = true;
+    git.enable = true;
+    # Signing commits
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   users.users.${username} = {
+    description = "Cirno";
     shell = pkgs.fish;
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
