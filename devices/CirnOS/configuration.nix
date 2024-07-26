@@ -53,6 +53,8 @@ in {
       wineWowPackages.waylandFull
       # StarSector is a good game
       unstable.starsector
+      # Minecrap !
+      unstable.prismlauncher
     ];
   };
 
