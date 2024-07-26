@@ -94,7 +94,9 @@
     packages = with pkgs; [
       firefox
       brave
-      
+
+      # An image viewer I like
+      geeqie
       # a great nix helper
       unstable.nh
 
@@ -103,6 +105,9 @@
       
       # My programming needs 
       unstable.gitui
+
+      # XDG-open is useful!
+      xdg-utils
 
       # tty commands I use
       unstable.eza
