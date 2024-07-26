@@ -43,8 +43,6 @@ in {
       # copy paste in x11
       xsel
 
-      androidStudioPackages.canary
-
       # Gaming!
       # run (in this case) visual novels via steam run
       steam-run
