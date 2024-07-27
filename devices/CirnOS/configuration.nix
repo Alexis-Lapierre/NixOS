@@ -18,16 +18,6 @@ in {
 
   networking.hostName = "CirnOS"; # Define your hostname.
 
-  # Configure keymap in X11
-  services.xserver = {
-    # I use a QWERTY keyboard at this compture, so US keyboard with french characteristics.
-    layout = "fr";
-    xkb = {
-      layout = "fr";
-      variant = "us";
-    };
-  };
-
   # No need for printer here.
   services.printing.enable = false;
   
