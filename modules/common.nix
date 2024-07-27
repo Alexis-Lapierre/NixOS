@@ -77,6 +77,28 @@
     # Since there is no programs.helix.defaultEditor, just plainly force this value for everyone
     # A redditor seemed really mad about this
     variables.EDITOR = "hx";
+    sessionVariables = let
+      config = "$HOME/.config";
+      data = "$HOME/.local/share";
+      state = "$HOME/.local/state";
+    in {
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = data;
+      XDG_STATE_HOME = state;
+      # Hiding folder away from $HOME:
+      HISTFILE = "${state}/bash_history"; # bash history file
+      PYTHON_HISTORY = "${state}/python_history"; # python history file
+
+      CARGO_HOME = "${data}/cargo"; # rust compilation
+      RUSTUP_HOME = "${data}/rustup";
+      GNUPGHOME = "${data}/gnupg"; # commit signing
+
+      RENPY_PATH_TO_SAVES = "${data}/renpy";
+      GTK2_RC_FILES = "${config}/gtk-2.0";
+      _JAVA_OPTIONS = "-Djava.util.prefs.userRoot='${config}/java'";
+      WINEPREFIX = "${data}/wine";
+    };
   };
 
   programs = {
