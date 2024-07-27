@@ -12,6 +12,12 @@ in {
       (import ../../modules/hyprland.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
   ];
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 25565 ];
+    allowedUDPPorts = [ 25565 ];
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
