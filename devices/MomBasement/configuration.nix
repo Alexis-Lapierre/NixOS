@@ -31,7 +31,7 @@ in {
 
 
     displayManager.gdm.enable = true;
-    desktopManager.lxqt.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   # enable auto login for main user + workaround found here:
@@ -49,7 +49,10 @@ in {
   users.users.${username} = {
     description = "Cirno";
 
-    packages = [ pkgs.xsel ];
+    packages = [
+      pkgs.xsel
+      pkgs.gnome3.gnome-tweaks
+     ];
   };
 
   # This value determines the NixOS release from which the default
