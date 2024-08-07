@@ -34,11 +34,6 @@ in {
   users.users.${username} = {
     description = "Cirno";
     packages = with pkgs; [
-      unstable.xclicker
-
-      # copy paste in x11
-      xsel
-
       # Gaming!
       # run (in this case) visual novels via steam run
       steam-run
