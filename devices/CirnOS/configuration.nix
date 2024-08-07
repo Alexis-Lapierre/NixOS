@@ -9,7 +9,7 @@ in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
-      (import ../../modules/hyprland.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+      (import ../../modules/cosmic-epoch.nix ({ }))
   ];
 
   networking.firewall = {
