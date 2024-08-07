@@ -10,13 +10,8 @@ in {
       ./hardware-configuration.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/cosmic-epoch.nix ({ }))
+      (import ../../modules/minecraft-server.nix ({ }))
   ];
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 25565 ];
-    allowedUDPPorts = [ 25565 ];
-  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
