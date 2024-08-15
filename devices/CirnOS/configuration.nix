@@ -11,6 +11,7 @@ in {
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
       (import ../../modules/minecraft-server.nix ({ }))
+      (import ../../modules/logitech.nix ({ }))
   ];
 
   # Bootloader.
