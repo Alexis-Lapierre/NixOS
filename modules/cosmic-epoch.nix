@@ -7,6 +7,7 @@
   users.users.${username} = {
     packages = with pkgs; [
       wofi # Used in a shortcut
+      wl-clipboard
     ];
   };
 }
