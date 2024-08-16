@@ -9,6 +9,7 @@ in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+    (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
   ];
 
   # Bootloader.
@@ -20,39 +21,11 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    # default AZERTY keyboard used at this computer
-    xkb = {
-      layout = "fr";
-      options = "caps:swapescape";
-    };
-
-
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
-
-  # enable auto login for main user + workaround found here:
-  # https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-  services.xserver.displayManager.autoLogin = {
-    enable = true;
-    user = username;
-  };
-
   # No need for printer here.
   services.printing.enable = false;
 
   users.users.${username} = {
     description = "Cirno";
-
-    packages = [
-      pkgs.xsel
-      pkgs.gnome3.gnome-tweaks
-     ];
   };
 
   # This value determines the NixOS release from which the default
