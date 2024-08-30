@@ -10,7 +10,7 @@ in {
       ./hardware-configuration.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
-      (import ../../modules/minecraft-server.nix ({ }))
+      (import ../../modules/games/steam.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/logitech.nix ({ }))
   ];
 
@@ -29,26 +29,6 @@ in {
 
   users.users.${username} = {
     description = "Cirno";
-    packages = with pkgs; [
-      # Gaming!
-      # run (in this case) visual novels via steam run
-      steam-run
-      # Other random video games I have collected require wine
-      # Force wayland with wine 32 bits because I like wayland
-      wineWowPackages.waylandFull
-      # StarSector is a good game
-      unstable.starsector
-      # Minecrap !
-      unstable.prismlauncher
-    ];
-  };
-
-  programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
   };
 
   # This value determines the NixOS release from which the default
