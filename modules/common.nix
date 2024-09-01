@@ -165,6 +165,9 @@
 
       # Archive extraction, woo
       p7zip
+
+      # Kcharselect is a program that I use often
+      kcharselect
     ];
   };
 }
