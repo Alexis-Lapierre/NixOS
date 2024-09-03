@@ -10,12 +10,12 @@
   # Test lastest hydrus for feedback on github
   nixpkgs.overlays = [(final: prev: {
     hydrus = prev.hydrus.overrideAttrs (old: rec {
-      version = "587";
+      version = "588";
       src = prev.fetchFromGitHub {
         owner = "hydrusnetwork";
         repo = "hydrus";
         rev = "refs/tags/v${version}";
-        hash = "sha256-/IeVQf4PAt/e9ead5IwH+UrA7XqJrnmvTi4UN2uhoBQ=";
+        hash = "sha256-0uRoOgpz3FSDedzx728jAPhrCAReVygkb5tZTTUxNEY=";
       };
     });
   })];
