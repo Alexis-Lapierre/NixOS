@@ -168,6 +168,9 @@
 
       # Kcharselect is a program that I use often
       kcharselect
+
+      # Password management!
+      keepassxc
     ];
   };
 }
