@@ -59,10 +59,19 @@
     };
   };
 
-  services.xserver = {
-    # do not use the xterm terminal
-    excludePackages = [ pkgs.xterm ]; 
+  services = {
+    xserver = {
+      # do not use the xterm terminal
+      excludePackages = [ pkgs.xterm ]; 
+    };
+    syncthing = {
+        enable = true;
+        user = username;
+        configDir = "/home/${username}/.config/syncthing";
+        openDefaultPorts = true;
+    };
   };
+
 
   # Configure console keymap
   console.keyMap = "us";
