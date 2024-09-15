@@ -31,18 +31,6 @@ in {
     description = "Cirno";
   };
 
-  # File syncthing
-  services = {
-    syncthing = {
-        enable = true;
-        user = username;
-        # TODO: Doc folder is configured outside of nix!
-        dataDir = "/home/${username}/Doc";
-        configDir = "/home/${username}/.config/syncthing";
-        openDefaultPorts = true;
-    };
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
