@@ -12,6 +12,7 @@ in {
       (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
       (import ../../modules/games/steam.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/logitech.nix ({ }))
+      (import ../../modules/toolbox.nix ({ pkgs = pkgs; username = username; }))
   ];
 
   # Bootloader.
