@@ -1,5 +1,5 @@
 {
-  description = "Rise up, ziggers";
+  description = "C++ fans dev flakes";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
