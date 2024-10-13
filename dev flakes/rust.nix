@@ -1,4 +1,5 @@
 {
+  description = "Rise up rustacian nation";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     utils.url = "github:numtide/flake-utils";
