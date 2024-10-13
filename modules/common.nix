@@ -7,19 +7,6 @@
     options = [ "mode=777" ];
   };
 
-  # Test lastest hydrus for feedback on github
-  nixpkgs.overlays = [(final: prev: {
-    hydrus = prev.hydrus.overrideAttrs (old: rec {
-      version = "588";
-      src = prev.fetchFromGitHub {
-        owner = "hydrusnetwork";
-        repo = "hydrus";
-        rev = "refs/tags/v${version}";
-        hash = "sha256-0uRoOgpz3FSDedzx728jAPhrCAReVygkb5tZTTUxNEY=";
-      };
-    });
-  })];
-
   # allow me to use nix command directly
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -162,7 +149,7 @@
       bat
       fastfetch
       # Image management
-      hydrus
+      unstable.hydrus
 
       # Viewing my epub files
       okular
