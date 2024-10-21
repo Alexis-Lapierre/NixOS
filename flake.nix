@@ -2,14 +2,16 @@
   description = "A very basic flake";
 
   inputs = {
-    stable.url = "nixpkgs/nixos-24.05";
-    unstable.url = "nixpkgs/nixos-unstable";
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "unstable";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    stable.url = "nixpkgs/nixos-24.05";
+    unstable.url = "nixpkgs/nixos-unstable";
   };
-  outputs = { self, stable, unstable, nixos-cosmic }:
+  outputs = { self, stable, unstable, nixos-cosmic, nixos-hardware }:
     {
       nixosConfigurations = let 
         makeModule = baseModule : [
@@ -40,6 +42,12 @@
           system = "x86_64-linux";
           modules = makeModule ./devices/MomBasement/configuration.nix;
 
+          specialArgs = makeSpecialArgs system;
+        };
+
+        PocketWizard = stable.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          modules = makeModule ./devices/PocketWizard/configuration.nix ++ [ nixos-hardware.nixosModules.gpd.pocket-3 ];
           specialArgs = makeSpecialArgs system;
         };
       };
