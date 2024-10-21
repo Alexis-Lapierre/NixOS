@@ -5,7 +5,6 @@ in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
-      (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
   ];
 
   # Bootloader.
@@ -16,7 +15,10 @@ in {
 
   # No need for printer here.
   services.printing.enable = false;
-  
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+
   users.users.${username} = {
     description = "Cirno";
   };

@@ -47,7 +47,7 @@
 
         PocketWizard = stable.lib.nixosSystem rec {
           system = "x86_64-linux";
-          modules = makeModule ./devices/PocketWizard/configuration.nix ++ [ nixos-hardware.nixosModules.gpd.pocket-3 ];
+          modules = makeModule ./devices/PocketWizard/configuration.nix ++ [ nixos-hardware.nixosModules.gpd-pocket-3 ];
           specialArgs = makeSpecialArgs system;
         };
       };
