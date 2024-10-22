@@ -19,6 +19,14 @@ in {
   services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm.wayland.enable = true;
 
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+
+  environment.systemPackages = [
+    pkgs.wl-clipboard
+  ];
+
+
   users.users.${username} = {
     description = "Cirno";
   };
