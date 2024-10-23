@@ -1,0 +1,60 @@
+// This layout is a modified EurKey layout, to bring down all the level 3 and 4 to 1 and 2.
+// This was done because the GPD Pocket 3 does not have a AltGr key,
+// and all built-in keyboard option did not fit my use case
+
+// Based on <https://eurkey.steffen.bruentjen.eu>.
+// Original Copyright 2012 Steffen Bruentjen (eurkey (at) steffen dot bruentjen dot de)
+
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "eurkey_down"  {
+
+    name[Group1] = "EurKEY Down (US)";
+
+    key <TLDE>	{[dead_grave, dead_tilde ]};
+    key <AE01>	{[exclamdown, onesuperior ]};
+    key <AE02>	{[ordfeminine, twosuperior ]};
+    key <AE03>	{[masculine, threesuperior ]};
+    key <AE04>	{[sterling, yen ]};
+    key <AE05>	{[EuroSign, cent ]};
+    key <AE06>	{[dead_circumflex, dead_caron ]};
+    key <AE07>	{[dead_abovering, dead_macron ]};
+    key <AE08>	{[doublelowquotemark, singlelowquotemark ]};
+    key <AE09>	{[leftdoublequotemark, leftsinglequotemark ]};
+    key <AE10>	{[rightdoublequotemark, rightsinglequotemark ]};
+    key <AE11>	{[endash, emdash ]};
+    key <AE12>	{[multiply, division ]};
+    key <AD01>	{[ae, AE ]};
+    key <AD02>	{[aring, Aring ]};
+    key <AD03>	{[ediaeresis, Ediaeresis ]};
+    key <AD04>	{[yacute, Yacute ]};
+    key <AD05>	{[thorn, THORN ]};
+    key <AD06>	{[ydiaeresis, Ydiaeresis ]};
+    key <AD07>	{[udiaeresis, Udiaeresis ]};
+    key <AD08>	{[idiaeresis, Idiaeresis ]};
+    key <AD09>	{[odiaeresis, Odiaeresis ]};
+    key <AD10>	{[oe, OE ]};
+    key <AD11>	{[guillemotleft, U2039 ]}; // ‹
+    key <AD12>	{[guillemotright, U203A ]}; // ›
+    key <BKSL>	{[notsign, brokenbar ]};
+    key <AC01>	{[adiaeresis, Adiaeresis ]};
+    key <AC02>	{[ssharp, section ]};
+    key <AC03>	{[eth, ETH ]};
+    key <AC04>	{[egrave, Egrave ]};
+    key <AC05>	{[eacute, Eacute ]};
+    key <AC06>	{[ugrave, Ugrave ]};
+    key <AC07>	{[uacute, Uacute ]};
+    key <AC08>	{[U0133, U0132 ]}; // ĳ, Ĳ
+    key <AC09>	{[oslash, Oslash ]};
+    key <AC10>	{[degree, periodcentered ]};
+    key <AC11>	{[dead_acute, dead_diaeresis ]};
+    key <AB01>	{[agrave, Agrave ]};
+    key <AB02>	{[aacute, Aacute ]};
+    key <AB03>	{[ccedilla, Ccedilla ]};
+    key <AB04>	{[igrave, Igrave ]};
+    key <AB05>	{[iacute, Iacute ]};
+    key <AB06>	{[ntilde, Ntilde ]};
+    key <AB07>	{[dead_greek, Multi_key ]};
+    key <AB08>	{[ograve, Ograve ]};
+    key <AB09>	{[oacute, Oacute ]};
+    key <AB10>	{[questiondown, U2026 ]}; // …
+};
