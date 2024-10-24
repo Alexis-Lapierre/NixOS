@@ -1,10 +1,10 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 let
   username = "cirno";
 in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+      ../../modules/common.nix
   ];
 
   AlexisLapierre = {

@@ -1,5 +1,7 @@
-{ pkgs, unstable, username, ... }:
-{
+{ pkgs, unstable, ... }:
+let
+  username = "cirno";
+in {
   imports = [
     ./options/default.nix 
   ];

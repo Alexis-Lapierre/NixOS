@@ -2,15 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 let
   username = "cirno";
 in {
   imports = [
       ./hardware-configuration.nix
-      (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
-      (import ../../modules/logitech.nix ({ }))
-      (import ../../modules/toolbox.nix ({ pkgs = pkgs; username = username; }))
+      ../../modules/common.nix
   ];
 
   # Bootloader.

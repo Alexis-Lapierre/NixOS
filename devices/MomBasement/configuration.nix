@@ -2,13 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, unstable, ... }:
+{ ... }:
 let
   username = "cirno";
 in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
+    ../../modules/common.nix
   ];
 
   AlexisLapierre.cosmicEpoch.enable = true;
