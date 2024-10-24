@@ -6,7 +6,7 @@
 let
   username = "cirno";
 in {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
       ./hardware-configuration.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/logitech.nix ({ }))
@@ -30,6 +30,15 @@ in {
   environment.systemPackages = [
     pkgs.timeshift # Backups!
   ];
+
+  hardware = {
+    # TODO: check if Keychron Q10 work with the following:
+    # keyboard.qmk.enable = true;
+    logitech.wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+  };
 
   users.users.${username} = {
     description = "Cirno";
