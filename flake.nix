@@ -4,14 +4,19 @@
   inputs = {
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "stable";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "stable";
+    };
 
     stable.url = "nixpkgs/nixos-24.05";
     unstable.url = "nixpkgs/nixos-unstable";
   };
-  outputs = { self, stable, unstable, nixos-cosmic, nixos-hardware }:
+  outputs = { self, stable, unstable, nixos-cosmic, nixos-hardware, home-manager }:
     {
       nixosConfigurations = let 
         makeModule = baseModule : [
@@ -22,6 +27,11 @@
             };
           }
           nixos-cosmic.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
           baseModule
         ];
         makeSpecialArgs = system : {
