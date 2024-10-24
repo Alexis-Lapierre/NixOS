@@ -189,6 +189,9 @@
 
       # Password management!
       keepassxc
+
+      # I often use notify-send
+      libnotify
     ];
   };
 }
