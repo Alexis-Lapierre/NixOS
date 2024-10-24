@@ -9,9 +9,10 @@ in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
-    (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
   ];
 
+  AlexisLapierre.cosmicEpoch.enable = true;
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

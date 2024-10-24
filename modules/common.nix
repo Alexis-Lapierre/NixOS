@@ -1,5 +1,9 @@
-{ pkgs, unstable, username }:
+{ pkgs, unstable, username, ... }:
 {
+  imports = [
+    ./options/default.nix 
+  ];
+
   # /tmp as a temp file system, as expected in other distros
   fileSystems."/tmp" = {
     device = "none";
@@ -97,6 +101,8 @@
       ethtool
       killall
       usbutils # lsusb, youhou
+      
+      wl-clipboard # I always use it, no matter the desktop environment
     ];
 
     # Since there is no programs.helix.defaultEditor, just plainly force this value for everyone

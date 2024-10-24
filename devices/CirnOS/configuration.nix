@@ -9,7 +9,6 @@ in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
-      (import ../../modules/cosmic-epoch.nix ({  pkgs = pkgs; username = username; }))
       (import ../../modules/games/steam.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
       (import ../../modules/logitech.nix ({ }))
       (import ../../modules/toolbox.nix ({ pkgs = pkgs; username = username; }))
@@ -23,6 +22,8 @@ in {
 
   # No need for printer here.
   services.printing.enable = false;
+
+  AlexisLapierre.cosmicEpoch.enable = true;
   
   environment.systemPackages = [
     pkgs.timeshift # Backups!
