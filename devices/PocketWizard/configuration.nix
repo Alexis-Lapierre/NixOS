@@ -4,9 +4,12 @@ let
 in {
   imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./extra_layout/extra_layout.nix
       (import ../../modules/common.nix ({ pkgs = pkgs; unstable = unstable; username = username; }))
   ];
+
+  AlexisLapierre = {
+    eurkey_down.enable = true;
+  };
 
   # Bootloader.
   boot.loader = {
