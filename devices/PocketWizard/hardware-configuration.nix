@@ -20,13 +20,28 @@
 
   boot.initrd.luks.devices."luks-ccd18a22-9e3f-4865-a059-a7c9f1074d3a".device = "/dev/disk/by-uuid/ccd18a22-9e3f-4865-a059-a7c9f1074d3a";
 
+
+  # Note: nixos-generate-config messes up this when upgrade and never decrypt it.
+  # this is a manual addition
+  # See https://discourse.nixos.org/t/how-to-encrypt-swap/45532/3
+  # The previous link helped me write this
+  boot.initrd.luks.devices.swap = {
+    device = "/dev/disk/by-uuid/58e0fc82-a4bd-46b2-b663-97975e4a97d1"; 
+    # ssh optimisation for swap
+    allowDiscards = true; 
+    bypassWorkqueues = true;
+  };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/606B-C146";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [ {
+    device = "/dev/disk/by-uuid/d9ec1fd9-58bb-4a6b-95c7-3897f4ea08ce";
+   } ];
+  boot.resumeDevice = "/dev/disk/by-uuid/d9ec1fd9-58bb-4a6b-95c7-3897f4ea08ce";
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
