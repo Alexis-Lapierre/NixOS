@@ -4,6 +4,7 @@ let
 in {
   imports = [
     ./options/default.nix 
+    ./homemanager/enable.nix 
   ];
 
   # /tmp as a temp file system, as expected in other distros

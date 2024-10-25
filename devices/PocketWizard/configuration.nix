@@ -9,6 +9,7 @@ in {
 
   AlexisLapierre = {
     eurkey_down.enable = true;
+    home-manager.enable = true;
   };
 
   # Bootloader.
@@ -42,8 +43,6 @@ in {
   users.users.${username} = {
     description = "Cirno";
   };
-
-  home-manager = { users = { ${username} = import ./home.nix; }; };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
