@@ -19,4 +19,24 @@
       push.autoSetupRemote = true;
     };
   };
+
+  programs.fish = {
+    enable = true;
+    shellAbbrs = {
+      ":q" = "exit";
+      cd = "z";
+      gg = "git grep -In";
+      groot = "cd \(git rev-parse --show-toplevel\)";
+      la = "exa --all --git --icons --long --group";
+      ls = "exa --git --icons --long --group";
+      icat = "kitty +kitten icat --align=center";
+      ssh = "kitty +kitten ssh";
+      cat = "bat";
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 }
