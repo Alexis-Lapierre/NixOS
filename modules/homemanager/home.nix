@@ -1,4 +1,4 @@
-{ ... }: {
+{ unstable, ... }: {
   home.username = "cirno";
   home.homeDirectory = "/home/cirno";
   home.stateVersion = "24.05";
@@ -64,5 +64,27 @@
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  programs.helix = {
+    enable = true;
+    package = unstable.helix;
+    defaultEditor = true;
+    settings = {
+      theme = "catppuccin_mocha";
+      editor = {
+        color-modes = true;
+        auto-pairs = false;
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+      };
+      keys.normal = {
+        X = [ "extend_line_up" "extend_to_line_bounds" ];
+      };
+
+    };
   };
 }
