@@ -32,6 +32,7 @@
       icat = "kitty +kitten icat --align=center";
       ssh = "kitty +kitten ssh";
       cat = "bat";
+      rat = "bat";
     };
 
     functions.fish_prompt = ''
