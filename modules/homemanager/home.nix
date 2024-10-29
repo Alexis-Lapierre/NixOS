@@ -87,4 +87,30 @@
 
     };
   };
+
+  programs.kitty = {
+    enable = true;
+    package = unstable.kitty;
+    settings = {
+      font_family = "ComicCodeLigatures Nerd Font";
+      confirm_os_window_close = 1;
+      tab_bar_edge  = "top";
+      tab_bar_style = "slant";
+      copy_on_select = "yes";
+      background_opacity = "0.7";
+    };
+    keybindings = {
+      "ctrl+shift+t" = "new_tab_with_cwd";
+      "ctrl+alt+t" = "set_tab_title";
+      "alt+h" = "neighboring_window left";
+      "alt+l" = "neighboring_window right";
+      "ctrl+shift+h" = "previous_tab";
+      "ctrl+shift+l" = "next_tab";
+      "alt+shift+h" = "move_tab_backward";
+      "alt+shift+l" = "move_tab_forward";
+
+      # This is annoying, I keep hitting it by mistake
+      "ctrl+shift+w" = "no_op";
+    };
+  };
 }
