@@ -5,17 +5,15 @@ Nothing much to talk about here.
 
 # First configuration
 
+Starting with the “default” configuration,
+just copy the generated /etc/nixos/hardware-configuration.nix into /device/CirnOS folder.
 
-Otherwise, just copy your /etc/nixos/hardware-configuration.nix into this folder.
-
-Then run
+Then run:
 ```bash
-# TODO: This will not work if you don't activate flakes somewhere.
-# I currently activate them in my configuration.nix so this will probably not work out of the box
-sudo nixos-rebuild --upgrade switch --flake .#CirnOS
+sudo nixos-rebuild --upgrade boot --flake .#CirnOS
 ```
 
-You can just about delete your /etc/nixos/ folder after that
+After that, you can reboot to try out my CirnOS configuration.
 
 On next runs you can run this instead of the nixos-rebuild command:
 
