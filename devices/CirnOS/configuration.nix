@@ -40,6 +40,7 @@ in {
 
   users.users.${username} = {
     description = "Cirno";
+    packages = with pkgs; [ brave ];
   };
 
   # This value determines the NixOS release from which the default

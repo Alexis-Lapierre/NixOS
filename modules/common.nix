@@ -152,7 +152,6 @@ in {
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      brave
 
       # An image viewer I like
       geeqie
