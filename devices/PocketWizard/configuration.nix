@@ -42,6 +42,7 @@ in {
 
   users.users.${username} = {
     description = "Cirno";
+    packages = with pkgs; [ krita ];
   };
 
   # This value determines the NixOS release from which the default
