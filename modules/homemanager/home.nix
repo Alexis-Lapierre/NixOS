@@ -72,7 +72,7 @@
     package = unstable.helix;
     defaultEditor = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "cat_trans";
       editor = {
         color-modes = true;
         auto-pairs = false;
@@ -85,7 +85,10 @@
       keys.normal = {
         X = [ "extend_line_up" "extend_to_line_bounds" ];
       };
-
+    };
+    themes.cat_trans = {
+      inherits = "catppuccin_mocha";
+      "ui.background" = "default";
     };
   };
 
