@@ -12,8 +12,20 @@ in {
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+
+    initrd.luks.devices.crypt_backup.device = "/dev/disk/by-uuid/f1b9596c-38de-4c45-b7d0-18db7e0f192a";
+  };
+  fileSystems."/backup" =
+    { device = "/dev/disk/by-uuid/95e50237-42eb-4ae2-be87-ac88b5e986f0";
+      fsType = "ext4";
+      # # nofail because this backup drive is not really important
+      # options = [ "nofail" ];
+    };
 
   networking.hostName = "CirnOS"; # Define your hostname.
 
