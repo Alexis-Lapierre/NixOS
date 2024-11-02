@@ -39,8 +39,9 @@ in {
     powerOnBoot = true; # powers up the default Bluetooth controller on boot
   };
 
-  environment.systemPackages = [
-    pkgs.wl-clipboard
+  environment.systemPackages = with pkgs; [
+    maliit-keyboard # virtual keyboard on tablet mode
+    wl-clipboard
   ];
 
 
