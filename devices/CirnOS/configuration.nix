@@ -23,8 +23,6 @@ in {
   fileSystems."/backup" =
     { device = "/dev/disk/by-uuid/95e50237-42eb-4ae2-be87-ac88b5e986f0";
       fsType = "ext4";
-      # # nofail because this backup drive is not really important
-      # options = [ "nofail" ];
     };
 
   networking.hostName = "CirnOS"; # Define your hostname.
@@ -35,6 +33,11 @@ in {
   AlexisLapierre = {
     cosmicEpoch.enable = true;
     games.steam.enable = true;
+
+    programming = {
+      exercism.enable = true;
+      gleam.enable = true;
+    };
   };
   
   environment.systemPackages = [
