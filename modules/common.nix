@@ -49,6 +49,9 @@ in {
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
+  # deactivate HTML documentation, I don't use it.
+  documentation.nixos.enable = false;
+
   # Locale, UK english for basic text.
   # French for the rest (€, metric, ...)
   i18n = {
