@@ -14,7 +14,7 @@
       environment.systemPackages = with unstable; [ clang cmake ninja ];
     })
     (lib.mkIf config.AlexisLapierre.programming.exercism.enable {
-      environment.systemPackages = [ unstable.toolbox ];
+      environment.systemPackages = with unstable; [ exercism ];
     })
     (lib.mkIf config.AlexisLapierre.programming.gleam.enable {
       environment.systemPackages = with unstable; [ erlang gleam rebar3 ];
