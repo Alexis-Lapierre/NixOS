@@ -33,6 +33,7 @@ in {
   AlexisLapierre = {
     cosmicEpoch.enable = true;
     games.steam.enable = true;
+    home-manager.enable = true;
 
     programming = {
       exercism.enable = true;
