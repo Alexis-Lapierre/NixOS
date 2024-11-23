@@ -96,6 +96,11 @@ in {
     pulse.enable = true;
   };
 
+  fonts.packages = with pkgs; [
+    # Being able to display Japaneses and Chinese characters properly is important!
+    noto-fonts-cjk-sans
+  ];
+
   environment = {
     systemPackages = with pkgs; [
       unstable.helix # My editor, latest version
@@ -108,6 +113,7 @@ in {
       usbutils # lsusb, youhou
       
       wl-clipboard # I always use it, no matter the desktop environment
+
     ];
 
     # Since there is no programs.helix.defaultEditor, just plainly force this value for everyone
