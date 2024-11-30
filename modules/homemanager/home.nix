@@ -74,8 +74,9 @@
     settings = {
       theme = "cat_trans";
       editor = {
-        color-modes = true;
         auto-pairs = false;
+        bufferline = "multiple";
+        color-modes = true;
         cursor-shape = {
           insert = "bar";
           normal = "block";
