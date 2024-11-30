@@ -17,7 +17,7 @@
       environment.systemPackages = with unstable; [ exercism ];
     })
     (lib.mkIf config.AlexisLapierre.programming.gleam.enable {
-      environment.systemPackages = with unstable; [ erlang gleam rebar3 ];
+      environment.systemPackages = with unstable; [ erlang_27 gleam ];
     })
     (lib.mkIf config.AlexisLapierre.programming.rust.enable {
       environment.systemPackages = with unstable; [ 
