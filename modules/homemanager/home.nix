@@ -102,17 +102,20 @@
       tab_bar_style = "slant";
       copy_on_select = "yes";
       background_opacity = "0.7";
+      editor = "hx";
     };
     keybindings = {
       "ctrl+shift+t" = "new_tab_with_cwd";
       "ctrl+alt+t" = "set_tab_title";
+      "ctrl+shift+;" = "next_layout";
       "alt+h" = "neighboring_window left";
       "alt+l" = "neighboring_window right";
+      "alt+k" = "neighboring_window up";
+      "alt+j" = "neighboring_window down";
       "ctrl+shift+h" = "previous_tab";
       "ctrl+shift+l" = "next_tab";
       "alt+shift+h" = "move_tab_backward";
       "alt+shift+l" = "move_tab_forward";
-
       # This is annoying, I keep hitting it by mistake
       "ctrl+shift+w" = "no_op";
     };
