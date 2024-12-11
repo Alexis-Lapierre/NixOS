@@ -3,7 +3,7 @@
   imports = [
       ./cosmicEpoch.nix
       ./games.nix
-      ./layoutEurKeyDown.nix
+      ./layoutEurKey.nix
       ./programming.nix
       ./toolbox.nix
   ];

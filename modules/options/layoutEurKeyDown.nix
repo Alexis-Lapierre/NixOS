@@ -6,10 +6,15 @@
   '';
 
   config = lib.mkIf config.AlexisLapierre.eurkey_down.enable {
-    services.xserver.xkb.extraLayouts.eurkey_down = {
-      description = "Eurkey layout shifted down - layer 3 and 4 are moved down to layer 1 and 2.";
+    # services.xserver.xkb.extraLayouts.eurkey_down = {
+    #   description = "Eurkey layout shifted down - layer 3 and 4 are moved down to layer 1 and 2.";
+    #   languages = [ "eng" "fr" ];
+    #   symbolsFile = ./layout/symbols/eurkey_down;
+    # };
+    services.xserver.xkb.extraLayouts.eurkey_edit = {
+      description = "Eurkey Alexis";
       languages = [ "eng" "fr" ];
-      symbolsFile = ./layout/symbols/eurkey_down;
+      symbolsFile = ./layout/symbols/eurkey_edit;
     };
   };
 }
