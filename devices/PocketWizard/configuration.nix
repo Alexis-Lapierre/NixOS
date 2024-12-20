@@ -10,6 +10,7 @@ in {
   AlexisLapierre = {
     eurkey_down.enable = true;
     home-manager.enable = true;
+    programming.gleam.enable = true;
   };
 
   # Bootloader.
