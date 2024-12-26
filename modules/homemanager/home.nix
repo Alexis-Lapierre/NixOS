@@ -77,6 +77,7 @@
         auto-pairs = false;
         bufferline = "multiple";
         color-modes = true;
+        soft-wrap.enable = true;
         cursor-shape = {
           insert = "bar";
           normal = "block";
