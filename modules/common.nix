@@ -96,7 +96,8 @@ in {
       ethtool
       killall
       usbutils # lsusb, youhou
-      
+      smartmontools # smartctl command
+
       wl-clipboard # I always use it, no matter the desktop environment
 
     ];
