@@ -83,6 +83,12 @@
           normal = "block";
           select = "underline";
         };
+
+        end-of-line-diagnostics = "hint";
+        inline-diagnostics = {
+          cursor-line = "warning";
+          other-lines = "warning";
+        };
       };
       keys.normal = {
         X = [ "extend_line_up" "extend_to_line_bounds" ];
