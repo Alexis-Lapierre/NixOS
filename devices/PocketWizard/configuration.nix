@@ -27,7 +27,9 @@ in {
 
   # No need for printer here.
   services = {
-    printing.enable = false;
+    printing.enable = true;
+    printing.drivers = [ pkgs.gutenprint ];
+
     desktopManager.plasma6.enable = true;
     displayManager.sddm = {
       enable = true;
