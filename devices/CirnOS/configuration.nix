@@ -37,7 +37,7 @@ in {
 
     programming = {
       exercism.enable = true;
-      gleam.enable = true;
+      rust.enable = true;
     };
   };
   
