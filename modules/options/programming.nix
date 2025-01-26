@@ -21,7 +21,7 @@
     })
     (lib.mkIf config.AlexisLapierre.programming.rust.enable {
       environment.systemPackages = with unstable; [ 
-        cargo clippy rust-analyzer rustc rustfmt
+        cargo clippy gcc rust-analyzer rustc rustfmt
       ];
     })
   ];
