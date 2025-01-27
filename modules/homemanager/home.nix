@@ -8,6 +8,7 @@
     userName  = "Alexis Lapierre";
     userEmail = "128792625+Alexis-Lapierre@users.noreply.github.com";
     aliases = {
+      fp = "fetch -p";
       pushf = "push --force-with-lease";
       ui = "!gitui";
     };
