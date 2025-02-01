@@ -25,9 +25,6 @@ in {
   # Unfree packages, let's go
   nixpkgs.config.allowUnfree = true;
 
-  # Latest kernel because I like it.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
   # Enable networking
   networking.networkmanager.enable = true;
 
