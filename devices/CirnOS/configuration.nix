@@ -41,9 +41,6 @@ in {
     };
   };
   
-  environment.systemPackages = [
-    pkgs.timeshift # Backups!
-  ];
 
   hardware = {
     # TODO: check if Keychron Q10 work with the following:
@@ -52,11 +49,18 @@ in {
       enable = true;
       enableGraphical = true;
     };
+
+    # driving wheel drivers for the Logitech G923
+    new-lg4ff.enable = true;
   };
+
+  # oversteer for managing the driving wheel
+  services.udev.packages = [ pkgs.oversteer ];
+  users.users.${username}.packages = [ pkgs.oversteer ];
 
   users.users.${username} = {
     description = "Cirno";
-    packages = with pkgs; [ brave ];
+    packages = [ pkgs.brave ];
   };
 
   # This value determines the NixOS release from which the default
