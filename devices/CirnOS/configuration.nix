@@ -56,7 +56,8 @@ in {
 
   # oversteer for managing the driving wheel
   services.udev.packages = [ pkgs.oversteer ];
-  users.users.${username}.packages = [ pkgs.oversteer ];
+  # oups, the stable version does not compile :(
+  # users.users.${username}.packages = [ pkgs.oversteer ];
 
   users.users.${username} = {
     description = "Cirno";
