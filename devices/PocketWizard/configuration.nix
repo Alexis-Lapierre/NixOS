@@ -22,6 +22,7 @@ in {
     };
     efi.canTouchEfiVariables = true;
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "PocketWizard"; # Define your hostname.
 
