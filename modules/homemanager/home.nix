@@ -8,8 +8,13 @@
     userName  = "Alexis Lapierre";
     userEmail = "128792625+Alexis-Lapierre@users.noreply.github.com";
     aliases = {
+      b = "branch";
+      bD = "branch -D";
+      bd = "branch --delete";
+      c = "checkout";
       fp = "fetch -p";
       pushf = "push --force-with-lease";
+      s = "switch --create";
       ui = "!gitui";
     };
 
