@@ -1,4 +1,4 @@
-{ unstable, ... }: {
+{ pkgs, unstable, ... }: {
   home.username = "cirno";
   home.homeDirectory = "/home/cirno";
   home.stateVersion = "24.05";
@@ -100,6 +100,18 @@
         X = [ "extend_line_up" "extend_to_line_bounds" ];
       };
     };
+
+    languages = {
+      language-server.harper-ls = with pkgs; {
+        command = "${pkgs.harper}/bin/harper-ls";
+        args = [ "--stdio" ];
+      };
+      language = [{
+        name = "rust";
+        language-servers = [ "rust-analyzer" "harper-ls" ];
+      }];
+    };
+
     themes.cat_trans = {
       inherits = "catppuccin_mocha";
       "ui.background" = "default";

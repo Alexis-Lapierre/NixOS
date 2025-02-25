@@ -1,4 +1,4 @@
-{ lib, config, unstable, ... }:
+{ lib, config, pkgs, unstable, ... }:
 {
   options.AlexisLapierre.home-manager = {
     enable = lib.mkEnableOption "Use the home manager on this device";
@@ -11,6 +11,9 @@
   };
 
   config = lib.mkIf config.AlexisLapierre.home-manager.enable {
-    home-manager.users.${config.AlexisLapierre.home-manager.user} = (import ./home.nix ({ unstable = unstable; }));
+    home-manager.users.${config.AlexisLapierre.home-manager.user} = (import ./home.nix ({
+      pkgs = pkgs;
+      unstable = unstable;
+    }));
   };
 }
