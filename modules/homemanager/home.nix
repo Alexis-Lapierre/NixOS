@@ -102,13 +102,16 @@
     };
 
     languages = {
-      language-server.harper-ls = with pkgs; {
+      language-server.harper-ls = {
         command = "${pkgs.harper}/bin/harper-ls";
         args = [ "--stdio" ];
       };
       language = [{
         name = "rust";
         language-servers = [ "rust-analyzer" "harper-ls" ];
+      } {
+        name = "git-commit";
+        language-servers = [ "harper-ls" ];
       }];
     };
 
