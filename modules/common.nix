@@ -185,9 +185,6 @@ in {
 
       # I often use notify-send
       libnotify
-
-      # typechecking inside helix!
-      harper
     ];
   };
 }
