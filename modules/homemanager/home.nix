@@ -103,7 +103,7 @@
 
     languages = {
       language-server.harper-ls = {
-        command = "${pkgs.harper}/bin/harper-ls";
+        command = "${unstable.harper}/bin/harper-ls";
         args = [ "--stdio" ];
       };
       language = [{
