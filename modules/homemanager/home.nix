@@ -15,6 +15,7 @@
       fp = "fetch -p";
       pushf = "push --force-with-lease";
       s = "switch --create";
+      st = "status";
       ui = "!gitui";
     };
 
