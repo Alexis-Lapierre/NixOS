@@ -28,10 +28,17 @@ in {
   networking.hostName = "CirnOS"; # Define your hostname.
 
   # No need for printer here.
-  services.printing.enable = false;
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
+    printing.enable = false;
+
+  };
 
   AlexisLapierre = {
-    cosmicEpoch.enable = true;
     games.steam.enable = true;
     home-manager.enable = true;
 
@@ -61,7 +68,7 @@ in {
 
   users.users.${username} = {
     description = "Cirno";
-    packages = [ pkgs.brave ];
+    packages = [ pkgs.brave pkgs.xsel ];
   };
 
   # This value determines the NixOS release from which the default
