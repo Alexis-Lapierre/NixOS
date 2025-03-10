@@ -47,14 +47,6 @@
 
           specialArgs = makeSpecialArgs system;
         };
-
-        MomBasement = stable.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          modules = makeModule ./devices/MomBasement/configuration.nix;
-
-          specialArgs = makeSpecialArgs system;
-        };
-
         PocketWizard = stable.lib.nixosSystem rec {
           system = "x86_64-linux";
           modules = makeModule ./devices/PocketWizard/configuration.nix ++ [ nixos-hardware.nixosModules.gpd-pocket-3 ];
